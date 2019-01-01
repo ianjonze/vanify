@@ -1,0 +1,13 @@
+$vanifyRed: #ff0000;
+$vanifyRedHover: #dd0000;
+$vanifyDarkGrey: #1d1d1d;
+$vanifyRustOrange: #ff6d00;
+
+@mixin bgGradientWhite() {
+   background: rgb(255,255,255); /* Old browsers */
+   background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(100,100,100,1) 100%); /* FF3.6-15 */
+   background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(100,100,100,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: radial-gradient(ellipse at center, fixed, rgba(255,255,255,1) 0%,rgba(100,100,100,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d1d1d1',GradientType=1 );
+   /* IE6-9 fallback on horizontal gradient */
+}

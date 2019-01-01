@@ -1,0 +1,94 @@
+body,
+html {
+   margin: 0px;
+   min-height: 100vh;
+}
+
+.no-margin {
+   margin: 0px;
+   padding: 0px;
+}
+
+// .select-heading {
+//    @include vanifyMainFont();
+// }
+.feature-img {
+   padding: 5vw; // max-width: 100%;
+   position: absolute;
+}
+
+.free-delivery {
+   background-color: #ff0000;
+   border-radius: 50%;
+   color: white;
+   width: 180px;
+   height: 180px;
+   text-align: center;
+   padding: 50px 20px;
+   font-size: 1.9em;
+   font-weight: bold;
+   line-height: 1em;
+   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+   letter-spacing: -0.08em;
+   animation: freeDelivery 5s infinite ease-in-out;
+   top: 50px;
+   left: 35vw;
+   position: absolute;
+}
+
+.headline {
+   font-size: 5vw;
+   font-weight: 900;
+   letter-spacing: -0.05em;
+   line-height: 0.8em;
+   /* text-shadow: 20px 10px 100px rgba(10, 10, 10, 0.1); */
+   animation: fadeIn 2s 1 ease-in-out;
+   text-transform: uppercase;
+   span {
+      color: $vanifyRustOrange;
+   }
+}
+
+hr {
+   border-color: black;
+}
+
+.bullets {
+   font-size: 1.5em;
+   font-weight: bold;
+   letter-spacing: -0.05em;
+   color: $vanifyRustOrange;
+   list-style-type: square;
+   span {
+      color: $vanifyDarkGrey;
+   }
+}
+
+.light-bg {
+   margin: 0; // 
+   // width: 100%;
+   height: 100vh;
+   background: url('../assets/stage 1.jpg') no-repeat;
+   // z-index: -20;
+}
+
+.light-bg::before {
+   display: block;
+   position: absolute;
+   background: radial-gradient(#FFFFFF, #646464);
+   height: 100vh;
+   width: 100%;
+   content: '';
+   top: 0;
+   right: 0;
+   // z-index: -10;
+   opacity: .9;
+}
+
+.grey-bg {
+   background-color: $vanifyDarkGrey;
+   color: white;
+   min-height: 50vh;
+   padding: 5vh;
+
+}

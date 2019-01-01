@@ -1,0 +1,31 @@
+@keyframes freeDelivery{
+   
+   0% {transform:  rotateZ(10deg) scale(.7) }
+   50% {transform:  rotateZ(15deg) scale(.8) }
+   100% {transform:  rotateZ(10deg) scale(.7) }
+}
+
+@keyframes fadeIn {
+   0% { opacity: 0 ;}
+   100%{ opacity: 1;}
+} 
+
+@keyframes bullet {
+    0% {transform: translateX(700px); opacity: 0;}
+    100% {transform: translateX(0px); opacity: 1;}
+}
+
+
+
+li {
+    @for $i from 1 through 3 {
+         &:nth-child(#{$i}) {
+             animation: bullet;
+             animation-duration: 200ms * $i;
+             animation-delay: 50ms * $i;
+             animation-timing-function: ease-in-out;
+             animation-fill-mode: forwards;
+         }
+    }
+}
+
