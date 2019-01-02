@@ -22,22 +22,22 @@ export default {
   name: 'VanifyHeader',
   data () {
     return {
-      isActive: false
+      isActive: true
     }
   },
   methods: {
     navToggle(){
       this.isActive = !this.isActive;
-      if (this.isActive == true) {
+      if (this.isActive === true) {
         document.getElementById("header").style.marginRight = "300px";
-        document.getElementById("logo-main").style.display = "none";
+        document.getElementById("logo-main").style.opacity = "0";
       } else {
         document.getElementById("header").style.marginRight = "0px";
-        document.getElementById("logo-main").style.display = "unset";
+        document.getElementById("logo-main").style.opacity = "1";
       }
       eventBus.$emit('navToggled', this.isActive);
     }
-  }  
+  }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -49,7 +49,10 @@ button:focus{
   outline: none;
 }
 #header{
-  transition: margin-right 1s;
+  transition: margin-right 1s ease-in-out;
+}
+#logo-main{
+  transition: opacity 1s;
 }
 </style>
 

@@ -15,8 +15,6 @@
     100% {transform: translateX(0px); opacity: 1;}
 }
 
-
-
 li {
     @for $i from 1 through 3 {
          &:nth-child(#{$i}) {

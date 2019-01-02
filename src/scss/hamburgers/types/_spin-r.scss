@@ -4,8 +4,8 @@
    */
   .hamburger--spin-r {
     .hamburger-inner {
-      transition-duration: 0.22s;
-      transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      transition-duration: .9s;
+      transition-timing-function: ease-in;
 
       &::before {
         transition: top 0.1s 0.25s ease-in,

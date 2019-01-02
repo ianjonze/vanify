@@ -4,7 +4,7 @@
     <ul>
       <li><i class="fas fa-home"></i><router-link to="/">Home</router-link></li>
       <li><i class="fas fa-paper-plane"></i><router-link to="/">Contact</router-link></li>
-      <li><i class="fas fa-info-circle"></i><router-link to="/">About</router-link></li>
+      <li><i class="fas fa-info-circle"></i><router-link to="/about">About</router-link></li>
     </ul>
   </div>
 </template>
@@ -12,9 +12,15 @@
 import { eventBus } from '@/main'
 export default {
   name: 'SideNav',
+  data(){
+    return{
+      isActive: true
+    }
+  },
   created() {
     eventBus.$on('navToggled',(status) => {
-      if(status == true) {
+      this.isActive = !this.isActive;
+      if(this.isActive === true) {
         document.getElementById("sidenav").style.transform = "translateX(0px)";
       } else {
         document.getElementById("sidenav").style.transform = "translateX(300px)";
@@ -43,6 +49,7 @@ export default {
   font-weight: 100;
   transition: transform 1s ease-in-out;
   transform: translateX(300px);
+  top:0;
   img {
     margin-top: 20px;
   }
