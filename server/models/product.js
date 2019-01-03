@@ -9,8 +9,7 @@ const productSchema = new mongoose.Schema({
 		required: true,
 		maxlength: 255,
 		minlength: 5,
-		maxlength: 20
-	}
+	},
 	sku: {
 		type: String,
 		minlength: 5,
@@ -22,7 +21,7 @@ const productSchema = new mongoose.Schema({
 	vehicle: {
 		id: Number,
 		category: String,
-		company: String,
+		manufacturer: String,
 		model: String,
 		wheelbase: String,
 		position: String
@@ -32,8 +31,8 @@ const productSchema = new mongoose.Schema({
 		main: String
 	},
 	dimensions:{
-		w: Number,
 		h: Number,
+		w: Number,
 		d: Number,
 	},
 	price: Number
@@ -52,24 +51,21 @@ function validateProduct(product) {
 		product: Joi.string().required(),
 		barcode: Joi.string().required().min(3).max(20),
 		description: Joi.string().required(),
-		vehicle: Joi.object().max(255)
-			.keys({
+		vehicle: Joi.object({
 				id: Joi.number().max(255),
 				category: Joi.string().max(255),
-				company: Joi.string().max(255),
+				manufacturer: Joi.string().max(255),
 				model: Joi.string().max(255),
 				wheelbase: Joi.string().max(10),
 				position: Joi.string().max(255)
 		}),
-		images: Joi.object()
-			.keys({
+		images: Joi.object({
 				thumbnail: Joi.string().min(11).max(2083),
 				main: Joi.string()
 		}),
-		dimensions: Joi.object().
-			.keys({
-				w: Joi.number().max(10).required(),
+		dimensions: Joi.object({
 				h: Joi.number().max(10).required(),
+				w: Joi.number().max(10).required(),
 				d: Joi.number().max(10).required(),
 		}),
 		price: Joi.number().required()
@@ -81,13 +77,15 @@ function validateProduct(product) {
 
 // async function createProduct() {
 // 	const product = new Product({
+//		name: '',
 // 		sku: 'VVS15OSF',
 // 		product: 'VT-01',
 // 		barcode: '5060600270055',
+//		description: '',
 // 		vehicle: {
 // 			id: 1,
 // 			category: '',
-// 			company: 'Vauxhaul',
+// 			manufacturer: 'Vauxhaul',
 // 			model: 'Vivaro SWB 2015+',
 // 			wheelbase: '',
 // 			position: 'OS Front'
@@ -97,8 +95,8 @@ function validateProduct(product) {
 // 			main: ''
 // 		},
 // 		dimensions:{
-// 			w: 1000,
-// 			h: 1200,
+// 			h: 1000,
+// 			w: 1200,
 // 			d: 300,
 // 		},
 // 		price: 120
