@@ -1,7 +1,4 @@
 
-
-//ARRAYS FOR DROPDOWN MENUS
-<script>
 const makes = [
 	{ 
 		id: 1,
@@ -93,7 +90,6 @@ const models = [
 		makeId: 2
 	}
 ]
-</script>
 
 
 
