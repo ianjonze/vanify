@@ -63,7 +63,7 @@ function validateProduct(product) {
 		}),
 		images: Joi.object()
 			.keys({
-				thumbnail: Joi.string(),
+				thumbnail: Joi.string().min(11).max(2083),
 				main: Joi.string()
 		}),
 		dimensions: Joi.object().
@@ -76,7 +76,6 @@ function validateProduct(product) {
 	};
 	return Joi.validate(customer, schema);
 };
-
 
 // create a new object from the above Class
 
