@@ -28,7 +28,7 @@ const productSchema = new mongoose.Schema({
 	},
 	images: {
 		thumbnail: String,
-		main: String
+		productImage: String
 	},
 	dimensions:{
 		h: Number,
@@ -51,7 +51,7 @@ function validateProduct(product) {
 		product: Joi.string().required(),
 		barcode: Joi.string().required().min(3).max(20),
 		description: Joi.string().required(),
-		vehicle: Joi.object({
+		vehicle: Joi.object().keys({
 				id: Joi.number().max(255),
 				category: Joi.string().max(255),
 				manufacturer: Joi.string().max(255),
@@ -59,11 +59,11 @@ function validateProduct(product) {
 				wheelbase: Joi.string().max(10),
 				position: Joi.string().max(255)
 		}),
-		images: Joi.object({
+		images: Joi.object().keys({
 				thumbnail: Joi.string().min(11).max(2083),
-				main: Joi.string()
+				productImage: Joi.string()
 		}),
-		dimensions: Joi.object({
+		dimensions: Joi.object().keys({
 				h: Joi.number().max(10).required(),
 				w: Joi.number().max(10).required(),
 				d: Joi.number().max(10).required(),

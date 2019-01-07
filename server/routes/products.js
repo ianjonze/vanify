@@ -1,7 +1,11 @@
+
+const mongoose = require('mongoose');
 const express = require('express');
-const mongoose = require('mongoose')
 const router = express.Router();
 const {Product, validate} = require('../models/product');
+
+const multer = require('multer');
+const {storage, fileFilter, upload} = require('../multer.config');
 
 // RETURN LIST OF ALL PRODUCTS
 
@@ -12,10 +16,9 @@ router.get('/', async (req, res) => {
 
 // POST A NEW PRODUCT
 
-router.post('/', async (req, res) => {
-	console.log (req.body);
-
-	const product = new Product({
+router.post('/', upload.single('productImage'), async (req, res) => {
+	console.log(req.file)
+	const product = new  Product({
 		_id: new mongoose.Types.ObjectId(),
 		name: req.body.name,
 		sku: req.body.sku,
@@ -32,9 +35,9 @@ router.post('/', async (req, res) => {
 		},
 		images: {
 			thumbnail: req.body.images.thumbnail,
-			main: req.body.images.main
+			productImage: req.file.path 
 		},
-		dimensions:{
+		dimensions: {
 			h: req.body.dimensions.h,
 			w: req.body.dimensions.w,
 			d: req.body.dimensions.d,
@@ -46,9 +49,16 @@ router.post('/', async (req, res) => {
 		.then(result => {
 			console.log(result);
 			res.status(201).json({
-				message: "Product Created Successfully"
-				// To-Do: Return the newly created Product to the client.
+				message: "Product Created Successfully",
+				product
 			})
+		.catch(err => {
+      		console.log(err);
+      		res.status(500).json({
+        	error: err
+      		})
 		})
 	})
+})
+
 module.exports = router;
