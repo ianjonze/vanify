@@ -16,7 +16,8 @@
             <img :src='selectedMake.logoUrl' style="height:100px">
                </div>
           </div>
-          <div v-if="selectedMake" class="row">
+          <div class="" v-if="selectedMake">
+            <div class="row">
             <div class="col-12 col-lg-6">
               <h2>Select your model</h2>
               <select v-model="selectedModel" id="vehicle-models" class="form-control">
@@ -27,6 +28,12 @@
             </div>
             <div class="col-12 col-lg-6">
               <!--Dynamic Vehicle picture-->
+            </div>
+          </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <button @click="" class="go-button btn btn-warning">GO</button>
+              </div>
             </div>
           </div>
         </div>
@@ -61,8 +68,17 @@ export default {
   color: white;
   min-height: 50vh;
   padding: 5vh;
-  position: absolute;
+  // position: absolute;
   width: 100%;
+  margin:0
+}
+
+.go-button{
+  width: 100%;
+  font-weight: 900;
+  font-family: roboto;
+  font-size: 1.5em;
+  margin-top: 30px
 }
 
 </style>
