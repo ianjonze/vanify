@@ -26,16 +26,16 @@ export default {
     }
   },
   methods: {
-    navToggle(){
-      this.isActive = !this.isActive;
+    navToggle () {
+      this.isActive = !this.isActive
       if (this.isActive === true) {
-        document.getElementById("header").style.marginRight = "300px";
-        document.getElementById("logo-main").style.opacity = "0";
+        document.getElementById('header').style.marginRight = '300px'
+        document.getElementById('logo-main').style.opacity = '0'
       } else {
-        document.getElementById("header").style.marginRight = "0px";
-        document.getElementById("logo-main").style.opacity = "1";
+        document.getElementById('header').style.marginRight = '0px'
+        document.getElementById('logo-main').style.opacity = '1'
       }
-      eventBus.$emit('navToggled', this.isActive);
+      eventBus.$emit('navToggled', this.isActive)
     }
   }
 }
@@ -55,5 +55,3 @@ button:focus{
   transition: opacity 1s;
 }
 </style>
-
- <!-- @click="isActive = !isActive, $navToggle" -->

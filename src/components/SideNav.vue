@@ -12,18 +12,18 @@
 import { eventBus } from '@/main'
 export default {
   name: 'SideNav',
-  data(){
-    return{
+  data () {
+    return {
       isActive: true
     }
   },
-  created() {
-    eventBus.$on('navToggled',(status) => {
-      this.isActive = !this.isActive;
-      if(this.isActive === true) {
-        document.getElementById("sidenav").style.transform = "translateX(0px)";
+  created () {
+    eventBus.$on('navToggled', (status) => {
+      this.isActive = !this.isActive
+      if (this.isActive === true) {
+        document.getElementById('sidenav').style.transform = 'translateX(0px)'
       } else {
-        document.getElementById("sidenav").style.transform = "translateX(300px)";
+        document.getElementById('sidenav').style.transform = 'translateX(300px)'
       }
     })
   }
